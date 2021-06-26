@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> mixed question Three </title>
+</head>
+<script>
+    //43.Older Than Me
+    class Person {
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        compareAge(other) {
+            if (this.age < other.age) {
+                return `${other.name} is older than me.`;
+            }
+            if (this.age > other.age) {
+                return `${other.name} is yonger than me.`;
+            }
+            if (this.age === other.age) {
+                return `${other.name} is the same as me.`;
+            }
+        }
+    }
+    p1 = new Person("Samuel", 24)
+    p2 = new Person("Kebede", 36)
+    p3 = new Person("Gebremikeale", 24)
+    console.log(p1.compareAge(p2));//"Kebede is older than me."
+    console.log(p2.compareAge(p1));//"Samuel is younger than me."
+    console.log(p1.compareAge(p3));//"Gebremikeale is the same age as me."
+    console.log("===========================")
+    /*
+    function mostFrequent(array){
+    return array.filter();
+    }
+    console.log(mostFrequent([4, 3, 6, 8, 3, 8, 4, 9, 6, 4], 4));
+    */
+    //44.Which Generation Are You?
+    function generation(x, y) {
+        const elo = {
+            '-3': { m: "great grandfather", f: "great grandmother" },
+            "-2": { m: "grandfather", f: "grandmother" },
+            "-1": { m: "father", f: "mother" },
+            0: { m: "me!", f: "me!" },
+            1: { m: "son", f: "daughter" },
+            2: { m: "grandson", f: "granddaughter" },
+            3: { m: "great grandson", f: "great granddaughter" },
+        };
+        return elo[x][y]
+    }
+    console.log(generation(2, "f"));//"granddaughter"
+    console.log("===========================")
+    //45. Emotify the Sentence
+    function emotify(str) {
+        let newStr = str.replace(('smile', 'D'),
+            ('grin', ')'),
+            ('sad', '('),
+            ('mad', 'p'));
+        return newStr;
+    }
+    console.log(emotify('Make me smile'));//"Make me :D"
+    //46. Say "Hello" Say "Bye"
+    function sayHelloBye(name, num) {
+        name = name.charAt(0).toUpperCase() + name.slice(1);
+        return num === 1 ? "Hello " + name : "By " + name;
+    }
+    console.log(sayHelloBye("taffesse", 0));//"Bye Taffesse"
+    console.log(sayHelloBye("ayaleneshe", 1));//"Hello Ayaleneshe"
+    console.log(sayHelloBye("Ethiopia", 1));//"Heloo Ethiopia"
+    console.log("===========================")
+    //47A. Is the Number Symmetrical?
+    function isSymmetrical(num) {
+        return ((num + "") === (num + "").split("").reverse().join("")) ? true : false;
+    }
+    console.log(isSymmetrical(7227));//true
+    console.log(isSymmetrical(12567));//false
+    console.log("===========================")
+    //47B.Integer in Range?
+    function intWithinBounds(n, lower, upper) {
+        return Number.isInteger(n >= lower && n < upper) ? true : false
+    }
+    console.log(intWithinBounds(3, 1, 9));//true
+    console.log(intWithinBounds(6, 1, 6));//false
+    console.log(intWithinBounds(4.5, 3, 8));//false
+    console.log("===========================")
+    //48. Perimeters with a Catch
+    function perimeter(letter, number) {
+        return (4 * (letter == "s") || 6.28 * (letter == "c")) * number;
+    }
+    console.log(perimeter("s", 7));//28
+    console.log(perimeter("c", 4));//25.12
+    console.log(perimeter("c", 9));//56.52
+    console.log("===========================")
+    //49. Basic Arithmetic Operations
+    function operation(a, b, op) {
+        a = parseInt(a);
+        b = parseInt(b);
+        switch (op) {
+            case "add": return a + b;
+            case "subtract": return a - b;
+            case "multiply": return a * b;
+            case "divide": return b !== 0 ? a / b : 'undefined';
+        }
+    }
+    console.log(operation("1", "2", "add"));//3
+    console.log(operation("4", "5", "subtract"));//-1
+    console.log(operation("6", "3", "divide"));//2
+    console.log(operation("4", "5", "multiply"));//20
+    console.log("===========================")
+    //50. Likes vs. Dislikes
+    function likeOrDislike(arr) {
+        return arr = ['Like'] ? ["like"] : ["Dislike"],
+            arr = ["Dislike"] ? "Dislike" : "Like",
+            arr = ["Dislike", "Like"] ? "like" : "DisLike",
+            arr = ["like", "DisLike"] ? "Dislike" : "Like",
+            arr = ["Dislike", "DisLike"] ? "Nothing" : "DisLike",
+            arr = ["like", "Like"] ? "Nothing" : "DisLike"
+    }
+    console.log(likeOrDislike(["Dislike"]));//"Dislike"
+    console.log(likeOrDislike(["Like", "Like"]));//"Nothing"
+    console.log(likeOrDislike(["Dislike", "Like"]));//"like"
+    console.log(likeOrDislike(["Like", "Dislike", "Dislike"]));//"nothing"
+    console.log(operation("4", "5", "multiply"));//20
+    console.log("===========================")
+    //51. Is it an Object?
+    function isObject(value) {
+        return value instanceof Object;
+    }
+    console.log(isObject(function add(x, y) { return x + y }));//true
+    console.log(isObject(new RegExp('^[a-zA-Z0-9]+$', 'g')));//true
+    console.log(isObject(null));//false
+    console.log(isObject(""));//false
+    console.log("===========================")
+    //52.Sum of Number Elements in an Array
+    function numbersSum(arr) {
+        let sum = 0;
+        for (let i = 0; i <= arr.length; i++) {
+            if (Number(arr[i] === i)) {
+                sum += i;
+            }
+        }
+        return sum;
+    }
+    console.log(numbersSum([1, 2, "13", "4", "645"]));//3
+    console.log(numbersSum([true, false, "123", "75"]));//0
+    console.log(numbersSum([1, 2, 3, 4, 5, true]));//15
+    console.log("===========================")
+    //53.A Long Long Time
+    function longestTime(h, m, s) {
+        return h < m / 60 ? m < s / 60 ? s : m : h;
+    }
+    console.log(longestTime(1, 59, 3598));//1
+    console.log(longestTime(2, 300, 15000));//300
+    console.log(longestTime(15, 955, 59400));//59400
+    console.log("===========================")
+    //54. Add_two_numbers
+    function addTwoNumbers(a, b) {
+        var c = [];
+        for (var i = 0; i < Math.max(a.length, b.length); i++) {
+            c.push((a[i] || 0) + (b[i] || 0));
+        }
+        return c;
+    }
+    console.log(addTwoNumbers([3, 4, 2], [4, 6, 5]));//[7,0,8]
+    console.log("===========================")
+    //55. Find the Smallest and Biggest Numbers
+    function minMax(arr) {
+        let a = Math.min(...arr);
+        let b = Math.max(...arr);
+        return [a, b];
+    }
+    console.log(minMax([1, 2, 3, 4, 5]));//[1.5]
+    console.log(minMax([2334454, 5]));//[5,2334454]
+    console.log(minMax([1]));//[1,1]
+    console.log("===========================")
+    //56. Fruit Salad 🍇🍓🍎
+    function fruitSalad(arr) {
+        return arr.flatMap(f => [f.slice(0, f.length / 2),
+        f.slice(f.length / 2)]).sort().join("")
+    }
+    console.log(fruitSalad(["apple", "pear", "grapes"]));//"apargrapepesple"
+    console.log(fruitSalad(["raspberries", "mango"]));//"erriesmangoraspb"
+    console.log(fruitSalad(["banana"]));//"anaban"
+    console.log("===========================")
+   
+</script>
+<body>
+<h3><strong> Mixed Question Three </strong></h3>
+</body>
+</html>
